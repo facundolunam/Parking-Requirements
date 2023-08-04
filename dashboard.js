@@ -55,21 +55,21 @@ function calculateParking() {
     const count3PlusBedroom = parseInt(document.getElementById("count3PlusBedroom").value);
 
     // Calculate estimated parking for each source and apartment type
-    const rsisParking = (count1Bedroom * parkingRatios[developmentType].rsis[1]) +
+    const rsisParking =  Math.round((count1Bedroom * parkingRatios[developmentType].rsis[1]) +
         (count2Bedroom * parkingRatios[developmentType].rsis[2]) +
-        (count3PlusBedroom * parkingRatios[developmentType].rsis["3+"]);
+        (count3PlusBedroom * parkingRatios[developmentType].rsis["3+"]));
 
-    const rutgersSurveyParking = (count1Bedroom * parkingRatios[developmentType].rutgersSurvey[1]) +
+    const rutgersSurveyParking =  Math.round((count1Bedroom * parkingRatios[developmentType].rutgersSurvey[1]) +
         (count2Bedroom * parkingRatios[developmentType].rutgersSurvey[2]) +
-        (count3PlusBedroom * parkingRatios[developmentType].rutgersSurvey["3+"]);
+        (count3PlusBedroom * parkingRatios[developmentType].rutgersSurvey["3+"]));
 
-    const detailedRutgersSurveyParking = (count1Bedroom * parkingRatios[developmentType].detailedRutgersSurvey[1]) +
+    const detailedRutgersSurveyParking =  Math.round((count1Bedroom * parkingRatios[developmentType].detailedRutgersSurvey[1]) +
         (count2Bedroom * parkingRatios[developmentType].detailedRutgersSurvey[2]) +
-        (count3PlusBedroom * parkingRatios[developmentType].detailedRutgersSurvey["3+"]);
+        (count3PlusBedroom * parkingRatios[developmentType].detailedRutgersSurvey["3+"]));
 
-    const censusDataParking = (count1Bedroom * parkingRatios[developmentType].censusData[1]) +
+    const censusDataParking =  Math.round((count1Bedroom * parkingRatios[developmentType].censusData[1]) +
         (count2Bedroom * parkingRatios[developmentType].censusData[2]) +
-        (count3PlusBedroom * parkingRatios[developmentType].censusData["3+"]);
+        (count3PlusBedroom * parkingRatios[developmentType].censusData["3+"]));
 
     // Display the results on the dashboard
     const resultContainer = document.getElementById("resultContainer");
