@@ -6,6 +6,19 @@
 </head>
 <body>
     <div>
+        <h3>Development Types:</h3>
+        <ul>
+            <li>
+                <label for="garden">Garden:</label>
+                <input type="radio" name="developmentType" id="garden" value="garden" checked>
+            </li>
+            <li>
+                <label for="highrise">Highrise:</label>
+                <input type="radio" name="developmentType" id="highrise" value="highrise">
+            </li>
+        </ul>
+    </div>
+    <div>
         <h3>Parking Ratios (spaces per apartment type):</h3>
         <ul>
             <li>
@@ -49,12 +62,10 @@
     <button onclick="calculateParking()">Calculate Estimated Total Parking</button>
     <div>
         <h2>Estimated Total Parking:</h2>
-        <p id="rsisResult">-</p>
-        <p id="rutgersSurveyResult">-</p>
-        <p id="detailedRutgersSurveyResult">-</p>
-        <p id="censusDataResult">-</p>
+        <div id="resultContainer">
+            <!-- Results will be displayed here -->
+        </div>
     </div>
     <script src="dashboard.js"></script>
 </body>
 </html>
-
