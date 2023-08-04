@@ -18,3 +18,4 @@ function calculateParking() {
     // Display the result on the dashboard
     document.getElementById("estimatedParking").textContent = `${estimatedParking} parking spaces`;
 }
+ 
