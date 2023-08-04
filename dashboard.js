@@ -4,7 +4,7 @@ function calculateParking() {
     const count2Bedroom = parseInt(document.getElementById("count2Bedroom").value);
     const count3PlusBedroom = parseInt(document.getElementById("count3PlusBedroom").value);
 
-    // Get parking ratios for each apartment type from input fields
+    // Get parking ratios for each source and apartment type from input fields
     const rsisRatio1Bedroom = parseFloat(document.getElementById("rsisRatio1Bedroom").value);
     const rsisRatio2Bedroom = parseFloat(document.getElementById("rsisRatio2Bedroom").value);
     const rsisRatio3PlusBedroom = parseFloat(document.getElementById("rsisRatio3PlusBedroom").value);
