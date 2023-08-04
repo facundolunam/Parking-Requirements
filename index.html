@@ -8,9 +8,10 @@
     <div>
         <h3>Parking Ratios (spaces per apartment type):</h3>
         <ul>
-            <li>1 Bedroom Apartments: 1.5</li>
-            <li>2 Bedroom Apartments: 2.0</li>
-            <li>3+ Bedroom Apartments: 2.5</li>
+            <li>RSIS: <span id="rsisRatio">1.5</span></li>
+            <li>Rutgers Parking Survey: <span id="rutgersSurveyRatio">2.0</span></li>
+            <li>Detailed Rutgers Parking Survey: <span id="detailedRutgersSurveyRatio">2.5</span></li>
+            <li>Census data (ACS): <span id="censusDataRatio">2.8</span></li>
         </ul>
     </div>
     <div>
@@ -28,35 +29,11 @@
     <button onclick="calculateParking()">Calculate Estimated Total Parking</button>
     <div>
         <h2>Estimated Total Parking:</h2>
-        <p id="estimatedParking">-</p>
+        <p id="rsisResult">-</p>
+        <p id="rutgersSurveyResult">-</p>
+        <p id="detailedRutgersSurveyResult">-</p>
+        <p id="censusDataResult">-</p>
     </div>
     <script src="dashboard.js"></script>
 </body>
 </html>
-Modify dashboard.js:
-javascript
-Copy code
-const parkingRatios = {
-    1: 1.5,
-    2: 2.0,
-    3: 2.5
-};
-
-function calculateParking() {
-    // Get apartment counts from input fields
-    const count1Bedroom = parseInt(document.getElementById("count1Bedroom").value);
-    const count2Bedroom = parseInt(document.getElementById("count2Bedroom").value);
-    const count3PlusBedroom = parseInt(document.getElementById("count3PlusBedroom").value);
-
-    // Calculate estimated parking
-    const estimatedParking = (count1Bedroom * parkingRatios[1]) +
-        (count2Bedroom * parkingRatios[2]) +
-        (count3PlusBedroom * parkingRatios[3]);
-
-    // Display the result on the dashboard
-    document.getElementById("estimatedParking").textContent = `${estimatedParking} parking spaces`;
-}
-
-
-
-
