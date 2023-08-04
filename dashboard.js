@@ -45,4 +45,8 @@ function calculateParking() {
         (count3PlusBedroom * parkingRatios.censusData["3+"]);
 
     // Display the results on the dashboard
-    document.getElementById("rsisResult").textContent = `RSIS Ratio: ${rsis
+    document.getElementById("rsisResult").textContent = `RSIS Ratio: ${rsisParking} parking spaces`;
+    document.getElementById("rutgersSurveyResult").textContent = `Rutgers Parking Survey Ratio: ${rutgersSurveyParking} parking spaces`;
+    document.getElementById("detailedRutgersSurveyResult").textContent = `Detailed Rutgers Parking Survey Ratio: ${detailedRutgersSurveyParking} parking spaces`;
+    document.getElementById("censusDataResult").textContent = `Census data (ACS) Ratio: ${censusDataParking} parking spaces`;
+}
