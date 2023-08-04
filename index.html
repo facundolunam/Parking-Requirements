@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Rutgers Parking Study: Parking Estimation Dashboard</title>
+    <title>Parking Estimation Dashboard</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="Estimate the parking requirements for a development project based on different parking ratios.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 </head>
 <body>
     <h1>Parking Estimation Dashboard</h1>
-    <p>Use this dashboard to estimate the parking requirements for your development project based on different parking ratios estimated in the Rutgers Parking Study for New Jersey.</p>
-    <p>Instructions: Select the Development type: Garden (Less than 10 stories) or Highrise (10 or more stories), and complete the number of each type of apartment.</p>
+    <p>Use this dashboard to estimate the parking requirements for your development project based on different parking ratios.</p>
+
     <div>
-<div>
         <h3>Development Types:</h3>
         <ul>
             <li>
@@ -22,6 +24,63 @@
             </li>
         </ul>
     </div>
+    <div>
+        <h3>Garden Parking Ratios (spaces per apartment type):</h3>
+        <ul>
+            <li>
+                <span>RSIS:</span>
+                <span>1 Bedroom: <span id="gardenRSISRatio1Bedroom">1.5</span></span>
+                <span>2 Bedroom: <span id="gardenRSISRatio2Bedroom">2.0</span></span>
+                <span>3+ Bedroom: <span id="gardenRSISRatio3PlusBedroom">2.5</span></span>
+            </li>
+            <li>
+                <span>Rutgers Parking Survey:</span>
+                <span>1 Bedroom: <span id="gardenRutgersSurveyRatio1Bedroom">1.8</span></span>
+                <span>2 Bedroom: <span id="gardenRutgersSurveyRatio2Bedroom">2.3</span></span>
+                <span>3+ Bedroom: <span id="gardenRutgersSurveyRatio3PlusBedroom">2.8</span></span>
+            </li>
+            <li>
+                <span>Detailed Rutgers Parking Survey:</span>
+                <span>1 Bedroom: <span id="gardenDetailedRutgersSurveyRatio1Bedroom">2.0</span></span>
+                <span>2 Bedroom: <span id="gardenDetailedRutgersSurveyRatio2Bedroom">2.5</span></span>
+                <span>3+ Bedroom: <span id="gardenDetailedRutgersSurveyRatio3PlusBedroom">3.0</span></span>
+            </li>
+            <li>
+                <span>Census data (ACS):</span>
+                <span>1 Bedroom: <span id="gardenCensusDataRatio1Bedroom">2.3</span></span>
+                <span>2 Bedroom: <span id="gardenCensusDataRatio2Bedroom">2.8</span></span>
+                <span>3+ Bedroom: <span id="gardenCensusDataRatio3PlusBedroom">3.3</span></span>
+            </li>
+        </ul>
+    </div>
+    <div>
+        <h3>Highrise Parking Ratios (spaces per apartment type):</h3>
+        <ul>
+            <li>
+                <span>RSIS:</span>
+                <span>1 Bedroom: <span id="highriseRSISRatio1Bedroom">1.7</span></span>
+                <span>2 Bedroom: <span id="highriseRSISRatio2Bedroom">2.2</span></span>
+                <span>3+ Bedroom: <span id="highriseRSISRatio3PlusBedroom">2.7</span></span>
+            </li>
+            <li>
+                <span>Rutgers Parking Survey:</span>
+                <span>1 Bedroom: <span id="highriseRutgersSurveyRatio1Bedroom">2.0</span></span>
+                <span>2 Bedroom: <span id="highriseRutgersSurveyRatio2Bedroom">2.5</span></span>
+                <span>3+ Bedroom: <span id="highriseRutgersSurveyRatio3PlusBedroom">3.0</span></span>
+            </li>
+            <li>
+                <span>Detailed Rutgers Parking Survey:</span>
+                <span>1 Bedroom: <span id="highriseDetailedRutgersSurveyRatio1Bedroom">2.2</span></span>
+                <span>2 Bedroom: <span id="highriseDetailedRutgersSurveyRatio2Bedroom">2.7</span></span>
+                <span>3+ Bedroom: <span id="highriseDetailedRutgersSurveyRatio3PlusBedroom">3.2</span></span>
+            </li>
+            <li>
+                <span>Census data (ACS):</span>
+                <span>1 Bedroom: <span id="highriseCensusDataRatio1Bedroom">2.5</span></span>
+                <span>2 Bedroom: <span id="highriseCensusDataRatio2Bedroom">3.0</span></span>
+                <span>3+ Bedroom: <span id="highriseCensusDataRatio3PlusBedroom">3.5</span></span>
+            </li>
+        </ul>
     </div>
     <div>
         <label for="count1Bedroom">Number of 1 Bedroom Apartments:</label>
@@ -45,4 +104,5 @@
     <script src="dashboard.js"></script>
 </body>
 </html>
+
 
