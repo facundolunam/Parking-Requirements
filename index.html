@@ -8,10 +8,24 @@
     <div>
         <h3>Parking Ratios (spaces per apartment type):</h3>
         <ul>
-            <li>RSIS: <span id="rsisRatio">1.5</span></li>
-            <li>Rutgers Parking Survey: <span id="rutgersSurveyRatio">2.0</span></li>
-            <li>Detailed Rutgers Parking Survey: <span id="detailedRutgersSurveyRatio">2.5</span></li>
-            <li>Census data (ACS): <span id="censusDataRatio">2.8</span></li>
+            <li>1 Bedroom Apartments:
+                <input type="number" id="rsisRatio1Bedroom" min="0" step="0.1" value="1.5">
+                <input type="number" id="rutgersSurveyRatio1Bedroom" min="0" step="0.1" value="1.8">
+                <input type="number" id="detailedRutgersSurveyRatio1Bedroom" min="0" step="0.1" value="2.0">
+                <input type="number" id="censusDataRatio1Bedroom" min="0" step="0.1" value="2.3">
+            </li>
+            <li>2 Bedroom Apartments:
+                <input type="number" id="rsisRatio2Bedroom" min="0" step="0.1" value="2.0">
+                <input type="number" id="rutgersSurveyRatio2Bedroom" min="0" step="0.1" value="2.3">
+                <input type="number" id="detailedRutgersSurveyRatio2Bedroom" min="0" step="0.1" value="2.5">
+                <input type="number" id="censusDataRatio2Bedroom" min="0" step="0.1" value="2.8">
+            </li>
+            <li>3+ Bedroom Apartments:
+                <input type="number" id="rsisRatio3PlusBedroom" min="0" step="0.1" value="2.5">
+                <input type="number" id="rutgersSurveyRatio3PlusBedroom" min="0" step="0.1" value="2.8">
+                <input type="number" id="detailedRutgersSurveyRatio3PlusBedroom" min="0" step="0.1" value="3.0">
+                <input type="number" id="censusDataRatio3PlusBedroom" min="0" step="0.1" value="3.3">
+            </li>
         </ul>
     </div>
     <div>
