@@ -75,11 +75,6 @@ function calculateParking() {
     const resultContainer = document.getElementById("resultContainer");
     resultContainer.innerHTML = `
         <h3>${developmentType === "garden" ? "Garden" : "Highrise"} Development Type:</h3>
-        <h4>Parking Ratios:</h4>
-        <p>RSIS Ratio: ${parkingRatios[developmentType].rsis[1]} (1 Bedroom), ${parkingRatios[developmentType].rsis[2]} (2 Bedroom), ${parkingRatios[developmentType].rsis["3+"]} (3+ Bedroom)</p>
-        <p>Rutgers Parking Survey Ratio: ${parkingRatios[developmentType].rutgersSurvey[1]} (1 Bedroom), ${parkingRatios[developmentType].rutgersSurvey[2]} (2 Bedroom), ${parkingRatios[developmentType].rutgersSurvey["3+"]} (3+ Bedroom)</p>
-        <p>Detailed Rutgers Parking Survey Ratio: ${parkingRatios[developmentType].detailedRutgersSurvey[1]} (1 Bedroom), ${parkingRatios[developmentType].detailedRutgersSurvey[2]} (2 Bedroom), ${parkingRatios[developmentType].detailedRutgersSurvey["3+"]} (3+ Bedroom)</p>
-        <p>Census data (ACS) Ratio: ${parkingRatios[developmentType].censusData[1]} (1 Bedroom), ${parkingRatios[developmentType].censusData[2]} (2 Bedroom), ${parkingRatios[developmentType].censusData["3+"]} (3+ Bedroom)</p>
         <h4>Estimated Total Parking:</h4>
         <p>RSIS Ratio: ${rsisParking} parking spaces</p>
         <p>Rutgers Parking Survey Ratio: ${rutgersSurveyParking} parking spaces</p>
