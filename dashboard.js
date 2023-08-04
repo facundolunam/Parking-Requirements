@@ -46,29 +46,29 @@ const parkingRatios = {
 };
 
 function calculateGardenParking(count1Bedroom, count2Bedroom, count3PlusBedroom) {
-    const rsisParking = Math.round(
+    const rsisParking = 
         (count1Bedroom * parkingRatios.garden.rsis[1]) +
         (count2Bedroom * parkingRatios.garden.rsis[2]) +
         (count3PlusBedroom * parkingRatios.garden.rsis["3+"])
-    );
+    ;
 
-    const rutgersSurveyParking = Math.round(
+    const rutgersSurveyParking = 
         (count1Bedroom * parkingRatios.garden.rutgersSurvey[1]) +
         (count2Bedroom * parkingRatios.garden.rutgersSurvey[2]) +
         (count3PlusBedroom * parkingRatios.garden.rutgersSurvey["3+"])
-    );
+    ;
 
-    const detailedRutgersSurveyParking = Math.round(
+    const detailedRutgersSurveyParking = 
         (count1Bedroom * parkingRatios.garden.detailedRutgersSurvey[1]) +
         (count2Bedroom * parkingRatios.garden.detailedRutgersSurvey[2]) +
         (count3PlusBedroom * parkingRatios.garden.detailedRutgersSurvey["3+"])
-    );
+    ;
 
-    const censusDataParking = Math.round(
+    const censusDataParking = 
         (count1Bedroom * parkingRatios.garden.censusData[1]) +
         (count2Bedroom * parkingRatios.garden.censusData[2]) +
         (count3PlusBedroom * parkingRatios.garden.censusData["3+"])
-    );
+    ;
 
     return {
         rsis: rsisParking,
@@ -79,29 +79,29 @@ function calculateGardenParking(count1Bedroom, count2Bedroom, count3PlusBedroom)
 }
 
 function calculateHighriseParking(count1Bedroom, count2Bedroom, count3PlusBedroom) {
-    const rsisParking = Math.round(
+    const rsisParking = 
         (count1Bedroom * parkingRatios.highrise.rsis[1]) +
         (count2Bedroom * parkingRatios.highrise.rsis[2]) +
         (count3PlusBedroom * parkingRatios.highrise.rsis["3+"])
-    );
+    ;
 
-    const rutgersSurveyParking = Math.round(
+    const rutgersSurveyParking = 
         (count1Bedroom * parkingRatios.highrise.rutgersSurvey[1]) +
         (count2Bedroom * parkingRatios.highrise.rutgersSurvey[2]) +
         (count3PlusBedroom * parkingRatios.highrise.rutgersSurvey["3+"])
-    );
+    ;
 
-    const detailedRutgersSurveyParking = Math.round(
+    const detailedRutgersSurveyParking = 
         (count1Bedroom * parkingRatios.highrise.detailedRutgersSurvey[1]) +
         (count2Bedroom * parkingRatios.highrise.detailedRutgersSurvey[2]) +
         (count3PlusBedroom * parkingRatios.highrise.detailedRutgersSurvey["3+"])
-    );
+    ;
 
-    const censusDataParking = Math.round(
+    const censusDataParking = 
         (count1Bedroom * parkingRatios.highrise.censusData[1]) +
         (count2Bedroom * parkingRatios.highrise.censusData[2]) +
         (count3PlusBedroom * parkingRatios.highrise.censusData["3+"])
-    );
+    ;
 
     return {
         rsis: rsisParking,
