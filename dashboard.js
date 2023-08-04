@@ -45,47 +45,90 @@ const parkingRatios = {
     }
 };
 
-function calculateParking() {
-    // Rest of the code remains the same...
-
-    // Calculate estimated parking for each source and apartment type
+function calculateGardenParking(count1Bedroom, count2Bedroom, count3PlusBedroom) {
     const rsisParking = Math.round(
-        (count1Bedroom * parkingRatios[developmentType].rsis[1]) +
-        (count2Bedroom * parkingRatios[developmentType].rsis[2]) +
-        (count3PlusBedroom * parkingRatios[developmentType].rsis["3+"])
+        (count1Bedroom * parkingRatios.garden.rsis[1]) +
+        (count2Bedroom * parkingRatios.garden.rsis[2]) +
+        (count3PlusBedroom * parkingRatios.garden.rsis["3+"])
     );
 
     const rutgersSurveyParking = Math.round(
-        (count1Bedroom * parkingRatios[developmentType].rutgersSurvey[1]) +
-        (count2Bedroom * parkingRatios[developmentType].rutgersSurvey[2]) +
-        (count3PlusBedroom * parkingRatios[developmentType].rutgersSurvey["3+"])
+        (count1Bedroom * parkingRatios.garden.rutgersSurvey[1]) +
+        (count2Bedroom * parkingRatios.garden.rutgersSurvey[2]) +
+        (count3PlusBedroom * parkingRatios.garden.rutgersSurvey["3+"])
     );
 
     const detailedRutgersSurveyParking = Math.round(
-        (count1Bedroom * parkingRatios[developmentType].detailedRutgersSurvey[1]) +
-        (count2Bedroom * parkingRatios[developmentType].detailedRutgersSurvey[2]) +
-        (count3PlusBedroom * parkingRatios[developmentType].detailedRutgersSurvey["3+"])
+        (count1Bedroom * parkingRatios.garden.detailedRutgersSurvey[1]) +
+        (count2Bedroom * parkingRatios.garden.detailedRutgersSurvey[2]) +
+        (count3PlusBedroom * parkingRatios.garden.detailedRutgersSurvey["3+"])
     );
 
     const censusDataParking = Math.round(
-        (count1Bedroom * parkingRatios[developmentType].censusData[1]) +
-        (count2Bedroom * parkingRatios[developmentType].censusData[2]) +
-        (count3PlusBedroom * parkingRatios[developmentType].censusData["3+"])
+        (count1Bedroom * parkingRatios.garden.censusData[1]) +
+        (count2Bedroom * parkingRatios.garden.censusData[2]) +
+        (count3PlusBedroom * parkingRatios.garden.censusData["3+"])
     );
 
-    // Display the results on the dashboard
+    return {
+        rsis: rsisParking,
+        rutgersSurvey: rutgersSurveyParking,
+        detailedRutgersSurvey: detailedRutgersSurveyParking,
+        censusData: censusDataParking
+    };
+}
+
+function calculateHighriseParking(count1Bedroom, count2Bedroom, count3PlusBedroom) {
+    const rsisParking = Math.round(
+        (count1Bedroom * parkingRatios.highrise.rsis[1]) +
+        (count2Bedroom * parkingRatios.highrise.rsis[2]) +
+        (count3PlusBedroom * parkingRatios.highrise.rsis["3+"])
+    );
+
+    const rutgersSurveyParking = Math.round(
+        (count1Bedroom * parkingRatios.highrise.rutgersSurvey[1]) +
+        (count2Bedroom * parkingRatios.highrise.rutgersSurvey[2]) +
+        (count3PlusBedroom * parkingRatios.highrise.rutgersSurvey["3+"])
+    );
+
+    const detailedRutgersSurveyParking = Math.round(
+        (count1Bedroom * parkingRatios.highrise.detailedRutgersSurvey[1]) +
+        (count2Bedroom * parkingRatios.highrise.detailedRutgersSurvey[2]) +
+        (count3PlusBedroom * parkingRatios.highrise.detailedRutgersSurvey["3+"])
+    );
+
+    const censusDataParking = Math.round(
+        (count1Bedroom * parkingRatios.highrise.censusData[1]) +
+        (count2Bedroom * parkingRatios.highrise.censusData[2]) +
+        (count3PlusBedroom * parkingRatios.highrise.censusData["3+"])
+    );
+
+    return {
+        rsis: rsisParking,
+        rutgersSurvey: rutgersSurveyParking,
+        detailedRutgersSurvey: detailedRutgersSurveyParking,
+        censusData: censusDataParking
+    };
+}
+
+function calculateParking() {
+    const developmentType = document.querySelector('input[name="developmentType"]:checked').value;
+
+    const count1Bedroom = parseInt(document.getElementById("count1Bedroom").value);
+    const count2Bedroom = parseInt(document.getElementById("count2Bedroom").value);
+    const count3PlusBedroom = parseInt(document.getElementById("count3PlusBedroom").value);
+
+    let parkingResults;
+    if (developmentType === "garden") {
+        parkingResults = calculateGardenParking(count1Bedroom, count2Bedroom, count3PlusBedroom);
+    } else {
+        parkingResults = calculateHighriseParking(count1Bedroom, count2Bedroom, count3PlusBedroom);
+    }
+
     const resultContainer = document.getElementById("resultContainer");
     resultContainer.innerHTML = `
         <h3>${developmentType === "garden" ? "Garden" : "Highrise"} Development Type:</h3>
         <h4>Parking Ratios:</h4>
         <p>RSIS Ratio: ${parkingRatios[developmentType].rsis[1]} (1 Bedroom), ${parkingRatios[developmentType].rsis[2]} (2 Bedroom), ${parkingRatios[developmentType].rsis["3+"]} (3+ Bedroom)</p>
         <p>Rutgers Parking Survey Ratio: ${parkingRatios[developmentType].rutgersSurvey[1]} (1 Bedroom), ${parkingRatios[developmentType].rutgersSurvey[2]} (2 Bedroom), ${parkingRatios[developmentType].rutgersSurvey["3+"]} (3+ Bedroom)</p>
-        <p>Detailed Rutgers Parking Survey Ratio: ${parkingRatios[developmentType].detailedRutgersSurvey[1]} (1 Bedroom), ${parkingRatios[developmentType].detailedRutgersSurvey[2]} (2 Bedroom), ${parkingRatios[developmentType].detailedRutgersSurvey["3+"]} (3+ Bedroom)</p>
-        <p>Census data (ACS) Ratio: ${parkingRatios[developmentType].censusData[1]} (1 Bedroom), ${parkingRatios[developmentType].censusData[2]} (2 Bedroom), ${parkingRatios[developmentType].censusData["3+"]} (3+ Bedroom)</p>
-        <h4>Estimated Total Parking:</h4>
-        <p>RSIS Ratio: ${rsisParking} parking spaces</p>
-        <p>Rutgers Parking Survey Ratio: ${rutgersSurveyParking} parking spaces</p>
-        <p>Detailed Rutgers Parking Survey Ratio: ${detailedRutgersSurveyParking} parking spaces</p>
-        <p>Census data (ACS) Ratio: ${censusDataParking} parking spaces</p>
-    `;
-}
+        <p>Detailed Rutgers Parking Survey Ratio: ${
