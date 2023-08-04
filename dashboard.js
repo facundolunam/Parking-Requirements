@@ -76,9 +76,9 @@ function calculateParking() {
     resultContainer.innerHTML = `
         <h3>${developmentType === "garden" ? "Garden" : "Highrise"} Development Type:</h3>
         <h4>Estimated Total Parking:</h4>
-        <p>RSIS Ratio: ${rsisParking} parking spaces</p>
-        <p>Rutgers Parking Survey Ratio: ${rutgersSurveyParking} parking spaces</p>
-        <p>Detailed Rutgers Parking Survey Ratio: ${detailedRutgersSurveyParking} parking spaces</p>
-        <p>Census data (ACS) Ratio: ${censusDataParking} parking spaces</p>
+        <p>RSIS: ${rsisParking} parking spaces</p>
+        <p>Rutgers Parking Survey : ${rutgersSurveyParking} parking spaces</p>
+        <p>Detailed Rutgers Parking Survey : ${detailedRutgersSurveyParking} parking spaces</p>
+        <p>Census data (ACS) : ${censusDataParking} parking spaces</p>
     `;
 }
