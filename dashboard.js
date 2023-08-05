@@ -45,6 +45,50 @@ const parkingRatios = {
     }
 };
 
+function generateBarChart(parkingResults) {
+    const apartmentTypes = ["1 Bedroom", "2 Bedroom", "3+ Bedroom"];
+
+    const rsisData = apartmentTypes.map(type => parkingResults.rsis[type]);
+    const rutgersSurveyData = apartmentTypes.map(type => parkingResults.rutgersSurvey[type]);
+    const detailedRutgersSurveyData = apartmentTypes.map(type => parkingResults.detailedRutgersSurvey[type]);
+    const censusData = apartmentTypes.map(type => parkingResults.censusData[type]);
+
+    const data = [
+        { x: apartmentTypes, y: rsisData, name: 'RSIS', type: 'bar' },
+        { x: apartmentTypes, y: rutgersSurveyData, name: 'Rutgers Survey', type: 'bar' },
+        { x: apartmentTypes, y: detailedRutgersSurveyData, name: 'Detailed Rutgers Survey', type: 'bar' },
+        { x: apartmentTypes, y: censusData, name: 'Census data (ACS)', type: 'bar' }
+    ];
+
+    const layout = {
+        barmode: 'group',
+        title: 'Estimated Total Parking for Each Source',
+        xaxis: {
+            title: 'Apartment Type',
+        },
+        yaxis: {
+            title: 'Estimated Total Parking',
+        },
+    };
+
+    Plotly.newPlot('barChart', data, layout);
+}
+
+function calculateParking() {
+    // ... (previous code remains the same)
+
+    // After calculating the parking, generate the bar chart
+    generateBarChart(parkingResults);
+
+    const resultContainer = document.getElementById("resultContainer");
+    resultContainer.innerHTML = `
+        <!-- ... (previous code remains the same) -->
+    `;
+}
+
+
+
+
 function calculateParking() {
     // Get development type from radio buttons
     const developmentType = document.querySelector('input[name="developmentType"]:checked').value;
@@ -70,6 +114,10 @@ function calculateParking() {
     const censusDataParking = Math.round((count1Bedroom * parkingRatios[developmentType].censusData[1]) +
         (count2Bedroom * parkingRatios[developmentType].censusData[2]) +
         (count3PlusBedroom * parkingRatios[developmentType].censusData["3+"]));
+
+    generateBarChart(parkingResults);
+    const resultContainer = document.getElementById("resultContainer");
+    resultContainer.innerHTML = `
 
     // Display the results on the dashboard
     const resultContainer = document.getElementById("resultContainer");
