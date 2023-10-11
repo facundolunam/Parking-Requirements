@@ -6,21 +6,10 @@ const parkingRatios = {
             "3+": 2.1
         },
         rutgersSurvey: {
-            1: 0.79,
-            2: 1.7,
-            "3+": 2.32
-        },
-        detailedRutgersSurvey: {
-            1: 1.27,
-            2: 1.5,
-            "3+": 1.77
-        },
-        censusData: {
-            1: 0.88,
-            2: 1.14,
-            "3+": 1.32
-        }
-    },
+            1: 0.98,
+            2: 1.45,
+            "3+": 1.8
+    }
     highrise: {
         rsis: {
             1: 0.8,
@@ -28,20 +17,11 @@ const parkingRatios = {
             "3+": 1.9
         },
         rutgersSurvey: {
-            1: 0.51,
-            2: 1.73,
-            "3+": 0.99
-        },
-        detailedRutgersSurvey: {
-            1: 0,
-            2: 0,
-            "3+": 0
-        },
-        censusData: {
-            1: 0.61,
-            2: 1.06,
-            "3+": 1.18
+            1: 0.56,
+            2: 1.4,
+            "3+": 1.09
         }
+
     }
 };
 
@@ -79,13 +59,6 @@ function calculateParking() {
         (count2Bedroom * parkingRatios[developmentType].rutgersSurvey[2]) +
         (count3PlusBedroom * parkingRatios[developmentType].rutgersSurvey["3+"]));
 
-    const detailedRutgersSurveyParking = Math.round((count1Bedroom * parkingRatios[developmentType].detailedRutgersSurvey[1]) +
-        (count2Bedroom * parkingRatios[developmentType].detailedRutgersSurvey[2]) +
-        (count3PlusBedroom * parkingRatios[developmentType].detailedRutgersSurvey["3+"]));
-
-    const censusDataParking = Math.round((count1Bedroom * parkingRatios[developmentType].censusData[1]) +
-        (count2Bedroom * parkingRatios[developmentType].censusData[2]) +
-        (count3PlusBedroom * parkingRatios[developmentType].censusData["3+"]));
 
 
     // Display the results on the dashboard
@@ -94,8 +67,6 @@ function calculateParking() {
         <h3>${developmentType === "garden" ? "Garden" : "Highrise"} Development Type:</h3>
         <h4>Estimated Total Parking:</h4>
         <p>RSIS: ${rsisParking} parking spaces</p>
-        <p>Rutgers Parking Survey : ${rutgersSurveyParking} parking spaces</p>
-        <p>Detailed Rutgers Parking Survey : ${detailedRutgersSurveyParking} parking spaces</p>
-        <p>Census data (ACS) : ${censusDataParking} parking spaces</p>
+        <p>Rutgers Center for Real Estate : ${rutgersSurveyParking} parking spaces</p>
     `;
 }
