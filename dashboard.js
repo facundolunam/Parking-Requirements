@@ -8,7 +8,7 @@ const parkingRatios = {
         rutgersSurvey: {
             1: 0.98,
             2: 1.45,
-            "3+": 1.8
+            "+3": 1.8
     }
     highrise: {
         rsis: {
@@ -19,25 +19,11 @@ const parkingRatios = {
         rutgersSurvey: {
             1: 0.56,
             2: 1.4,
-            "3+": 1.09
+            "+3": 1.09
         }
 
     }
 };
-
-
-function calculateParking() {
-    // ... (previous code remains the same)
-
-    // After calculating the parking, generate the bar chart
-    generateBarChart(parkingResults);
-
-    const resultContainer = document.getElementById("resultContainer");
-    resultContainer.innerHTML = `
-        <!-- ... (previous code remains the same) -->
-    `;
-}
-
 
 
 
@@ -53,11 +39,11 @@ function calculateParking() {
     // Calculate estimated parking for each source and apartment type
     const rsisParking = Math.round((count1Bedroom * parkingRatios[developmentType].rsis[1]) +
         (count2Bedroom * parkingRatios[developmentType].rsis[2]) +
-        (count3PlusBedroom * parkingRatios[developmentType].rsis["3+"]));
+        (count3PlusBedroom * parkingRatios[developmentType].rsis["+3"]));
 
     const rutgersSurveyParking = Math.round((count1Bedroom * parkingRatios[developmentType].rutgersSurvey[1]) +
         (count2Bedroom * parkingRatios[developmentType].rutgersSurvey[2]) +
-        (count3PlusBedroom * parkingRatios[developmentType].rutgersSurvey["3+"]));
+        (count3PlusBedroom * parkingRatios[developmentType].rutgersSurvey["+3"]));
 
 
 
